@@ -4,7 +4,7 @@ import math
 from matrix import matrix_multiplication
 
 os.environ["SDL_VIDEO_CENTERED"]='1'
-black, white = (20, 20, 20), (230, 230, 230)
+black, white, blue  = (20, 20, 20), (230, 230, 230), (0, 154, 255)
 width, height = 1920, 1080
 
 pygame.init()
@@ -16,7 +16,7 @@ fps = 60
 angle = 0
 cube_position = [width//2, height//2]
 scale = 600
-speed = 0.005
+speed = 0.01
 points = [n for n in range(8)]
 
 points[0] = [[-1], [-1], [1]]
@@ -70,7 +70,7 @@ while run:
         x = int(projected_2d[0][0] * scale) + cube_position[0]
         y = int(projected_2d[1][0] * scale) + cube_position[1]
         projected_points[index] = [x, y]
-        pygame.draw.circle(screen, black, (x, y), 10)
+        pygame.draw.circle(screen, blue, (x, y), 10)
         index += 1
     #draw edges
     for m in range(4):
